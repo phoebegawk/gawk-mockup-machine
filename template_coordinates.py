@@ -1,115 +1,7 @@
 # --- Template Coordinates ---
 
-TEMPLATE_CONFIG = {
-    "Bendigo (Digital) - 35501-D": {
-        "split_ratios": [0.33, 0.34, 0.33],
-        "LHS": [
-            (1086, 502),
-            (1280, 450),
-            (1277, 694),
-            (1091, 729)
-        ],
-        "MID": [
-            (1280, 454),
-            (1528, 450),
-            (1533, 689),
-            (1277, 695)
-        ],
-        "RHS": [
-            (1528, 445),
-            (1777, 475),
-            (1776, 705),
-            (1533, 689)
-        ]
-    },
-    "Bendigo (Digital) Kangaroo Flat - 35553-D": {
-        "split_ratios": [0.33, 0.34, 0.33],
-        "LHS": [
-            (992, 629),
-            (1152, 591),
-            (1149, 810),
-            (988, 832),
-        ],
-        "MID": [
-            (1152, 591),
-            (1465, 583),
-            (1465, 803),
-            (1149, 810),
-        ],
-        "RHS": [
-            (1465, 583),
-            (1622, 617),
-            (1623, 818),
-            (1465, 803),
-        ]
-    },
-        "Echuca (Digital) - 35641-D": {
-        "split_ratios": [0.10, 0.80, 0.10],
-        "LHS": [
-            (957, 680),
-            (1067, 674),
-            (1064, 933),
-            (960, 943),
-        ],
-        "MID": [
-            (1067, 674),
-            (1724, 687),
-            (1725, 938),
-            (1064, 933),
-        ],
-        "RHS": [
-            (1724, 687),
-            (1799, 690),
-            (1799, 940),
-            (1725, 938)
-        ]
-    },
-    "Traralgon (Digital) - 38442-D": {
-        "split_ratio": 0.1,
-        "LHS": [
-            (819, 452),
-            (903, 431),
-            (898, 727),
-            (817, 739),
-        ],
-        "RHS": [
-            (902, 436),
-            (1642, 521),
-            (1640, 782),
-            (894, 729),
-        ],
-    },
-    "Warrnambool (Digital) - 32801-D": {
-        "split_ratio": 0.6,
-        "LHS": [
-            (787, 433),
-            (1121, 405),
-            (1121, 626),
-            (790, 635),
-        ],
-        "RHS": [
-            (1121, 405),
-            (1327, 442),
-            (1328, 640),
-            (1121, 626),
-        ],
-    },
-    "Shepparton (Digital) - 36304-D": {
-        "split_ratio": 0.5,
-        "LHS": [
-            (1195, 1035),
-            (1613, 960),
-            (1613, 1141),
-            (1195, 1198),
-        ],
-        "RHS": [
-            (1611, 960),
-            (2058, 1026),
-            (2058, 1193),
-            (1613, 1141),
-        ],
-    },
-    "Ararat (Digital) - 33773-D": {
+TEMPLATE_COORDINATES = {  
+    "Ararat (Digital) - 33773-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1010, 547),
@@ -118,7 +10,7 @@ TEMPLATE_CONFIG = {
             (1007, 725),
         ]
     },
-    "Ballarat (Digital) Wendouree - 33554-D": {
+    "Ballarat (Digital) Wendouree - 33554-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (810, 609),
@@ -127,7 +19,7 @@ TEMPLATE_CONFIG = {
             (812, 819)
         ]
     },
-    "Bairnsdale (Digital) - 38752-D": {
+    "Bairnsdale (Digital) - 38752-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (714, 482),
@@ -136,7 +28,7 @@ TEMPLATE_CONFIG = {
             (713, 730)
         ]
     },
-    "Ballarat (Digital) - 33503-D": {
+    "Ballarat (Digital) - 33503-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (939, 379),
@@ -145,7 +37,7 @@ TEMPLATE_CONFIG = {
             (951, 661)
         ]
     },
-    "Ballarat (Digital) Wendouree - 33554-D": {
+    "Ballarat (Digital) Wendouree - 33554-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (811, 606),
@@ -154,7 +46,7 @@ TEMPLATE_CONFIG = {
             (812, 816),
         ]
     },
-    "Bega (Digital) - 25501-D": {
+    "Bega (Digital) - 25501-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (645, 482),
@@ -163,7 +55,7 @@ TEMPLATE_CONFIG = {
             (645, 641),
         ]
     },
-    "Bendigo (Digital) Epsom - 35511-D": {
+    "Bendigo (Digital) Epsom - 35511-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1438, 850),
@@ -172,7 +64,7 @@ TEMPLATE_CONFIG = {
             (1439, 1027)
         ]
     },
-    "Cobram (Digital) - 36442-D": {
+    "Cobram (Digital) - 36442-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (257, 754),
@@ -182,7 +74,7 @@ TEMPLATE_CONFIG = {
         ]
     },
 
-    "Geelong (Digital) - 32201-D": {
+    "Geelong (Digital) - 32201-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1054, 485),
@@ -191,7 +83,7 @@ TEMPLATE_CONFIG = {
             (1058, 781)
         ]
     },
-    "Geelong (Digital) Bellarine - 32242-D": {
+    "Geelong (Digital) Bellarine - 32242-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (819, 527),
@@ -200,7 +92,7 @@ TEMPLATE_CONFIG = {
             (819, 657)
         ]
     },
-    "Geelong (Digital) Belmont - 32163-D": {
+    "Geelong (Digital) Belmont - 32163-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (563, 529),
@@ -209,7 +101,7 @@ TEMPLATE_CONFIG = {
             (563, 732)
         ]
     },
-    "Geelong (Digital) Grovedale - 32162-D": {
+    "Geelong (Digital) Grovedale - 32162-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (892, 644),
@@ -218,7 +110,7 @@ TEMPLATE_CONFIG = {
             (891, 786)
         ]
     },
-    "Geelong North (Digital) - 32151-D": {
+    "Geelong North (Digital) - 32151-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (705, 488),
@@ -227,7 +119,7 @@ TEMPLATE_CONFIG = {
             (706, 759)
         ]
     },
-    "Geelong (Digital) Beckley Park - 32143-D": {
+    "Geelong (Digital) Beckley Park - 32143-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (676, 385),
@@ -236,7 +128,7 @@ TEMPLATE_CONFIG = {
             (682, 564),
         ]
     },
-    "Geelong (Digital) Belmont - 32163-D": {
+    "Geelong (Digital) Belmont - 32163-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (506, 476),
@@ -245,7 +137,7 @@ TEMPLATE_CONFIG = {
             (507, 658),
         ]
     },
-    "Gosford (Digital) - 22501-D": {
+    "Gosford (Digital) - 22501-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (528, 480),
@@ -254,7 +146,7 @@ TEMPLATE_CONFIG = {
             (523, 667)
         ]
     },
-    "Hamilton (Digital) - 33005-D": {
+    "Hamilton (Digital) - 33005-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (558, 588),
@@ -263,7 +155,7 @@ TEMPLATE_CONFIG = {
             (553, 878),
         ]
     },
-    "Hastings (Digital) - 39152-D": {
+    "Hastings (Digital) - 39152-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (531, 525),
@@ -272,7 +164,7 @@ TEMPLATE_CONFIG = {
             (529, 745)
         ]
     },
-    "Horsham (Digital) - 34006-D": {
+    "Horsham (Digital) - 34006-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1240, 527),
@@ -281,7 +173,7 @@ TEMPLATE_CONFIG = {
             (1241, 889)
         ]
     },
-    "Melton (Digital) - 33381-D": {
+    "Melton (Digital) - 33381-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (825, 374),
@@ -290,7 +182,7 @@ TEMPLATE_CONFIG = {
             (820, 577),
         ]
     },
-    "Mildura (Digital) - 35005-D": {
+    "Mildura (Digital) - 35005-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (522, 491),
@@ -299,7 +191,7 @@ TEMPLATE_CONFIG = {
             (517, 794)
         ]
     },
-    "Mildura (Digital) - 35008-D": {
+    "Mildura (Digital) - 35008-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1143, 887),
@@ -308,7 +200,7 @@ TEMPLATE_CONFIG = {
             (1145, 1081)
         ]
     },
-    "Mount Barker (Digital) - 52511-D": {
+    "Mount Barker (Digital) - 52511-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (846, 403),
@@ -317,7 +209,7 @@ TEMPLATE_CONFIG = {
             (844, 580)
         ]
     },
-    "Mount Gambier (Digital) - 52902-D": {
+    "Mount Gambier (Digital) - 52902-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (211, 686),
@@ -326,7 +218,7 @@ TEMPLATE_CONFIG = {
             (207, 870)
         ]
     },
-    "Mount Gambier (Digital) - 52903-D": {
+    "Mount Gambier (Digital) - 52903-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1109, 820),
@@ -335,7 +227,7 @@ TEMPLATE_CONFIG = {
             (1108, 1080)
         ]
     },
-    "Maitland (Digital) Rutherford - 23201-D": {
+    "Maitland (Digital) Rutherford - 23201-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (905, 545),
@@ -344,7 +236,7 @@ TEMPLATE_CONFIG = {
             (906, 677)
         ]
     },
-    "Newcastle (Digital) Thornton - ﻿23221-D": {
+    "Newcastle (Digital) Thornton - ﻿23221-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (691, 461),
@@ -353,7 +245,7 @@ TEMPLATE_CONFIG = {
             (690, 580)
         ]
     },
-    "Newcastle (Digital) Thornton - ﻿23222-D": {
+    "Newcastle (Digital) Thornton - ﻿23222-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1018, 474),
@@ -362,7 +254,7 @@ TEMPLATE_CONFIG = {
             (1018, 610)
         ]
     },
-    "Singleton (Digital) - 23301-D": {
+    "Singleton (Digital) - 23301-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1137, 546),
@@ -371,7 +263,7 @@ TEMPLATE_CONFIG = {
             (1137, 683)
         ]
     },
-    "Port Augusta (Digital) - 57002-D": {
+    "Port Augusta (Digital) - 57002-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (393, 676),
@@ -380,7 +272,7 @@ TEMPLATE_CONFIG = {
             (391, 850)
         ]
     },
-    "Sale (Digital) - 38502-D": {
+    "Sale (Digital) - 38502-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (510, 484),
@@ -389,7 +281,7 @@ TEMPLATE_CONFIG = {
             (510, 662)
         ]
     },
-    "Stawell (Digital) - 33802-D": {
+    "Stawell (Digital) - 33802-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1111, 647),
@@ -398,7 +290,7 @@ TEMPLATE_CONFIG = {
             (1111, 857)
         ]
     },
-    "Swan Hill (Digital) - 35854-D": {
+    "Swan Hill (Digital) - 35854-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1004, 576),
@@ -407,7 +299,7 @@ TEMPLATE_CONFIG = {
             (1006, 715)
         ]
     },
-    "Shepparton (Digital) - 36301-D": {
+    "Shepparton (Digital) - 36301-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (825, 568),
@@ -416,7 +308,7 @@ TEMPLATE_CONFIG = {
             (822, 898)
         ]
     },
-    "Shepparton (Digital) - 36304-D-A": {
+    "Shepparton (Digital) - 36304-D-A.png": {
         "split_ratio": 1.0,
         "LHS": [
             (605, 457),
@@ -425,7 +317,7 @@ TEMPLATE_CONFIG = {
             (600, 712)
         ]
     },
-    "Shepparton (Digital) - 36304-D-B": {
+    "Shepparton (Digital) - 36304-D-B.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1309, 620),
@@ -434,7 +326,7 @@ TEMPLATE_CONFIG = {
             (1311, 795)
         ]
     },
-    "Shepparton (Digital) - 36305-D": {
+    "Shepparton (Digital) - 36305-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1003, 563),
@@ -443,7 +335,7 @@ TEMPLATE_CONFIG = {
             (1004, 732)
         ]
     },
-    "Shepparton (Digital) - 36306-D": {
+    "Shepparton (Digital) - 36306-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (340, 399),
@@ -452,7 +344,7 @@ TEMPLATE_CONFIG = {
             (340, 752)
         ]
     },
-    "Torquay (Digital) - 32281-D": {
+    "Torquay (Digital) - 32281-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (744, 442),
@@ -461,7 +353,7 @@ TEMPLATE_CONFIG = {
             (742, 687)
         ]
     },
-    "Warragul (Digital) - 38203-D": {
+    "Warragul (Digital) - 38203-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1623, 551),
@@ -470,7 +362,7 @@ TEMPLATE_CONFIG = {
             (1628, 778)
         ]
     },
-    "Traralgon (Digital) - 38441-D": {
+    "Traralgon (Digital) - 38441-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (613, 227),
@@ -479,7 +371,7 @@ TEMPLATE_CONFIG = {
             (611, 415)
         ]
     },
-    "Wangaratta (Digital) - 36772-D": {
+    "Wangaratta (Digital) - 36772-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (272, 488),
@@ -488,7 +380,7 @@ TEMPLATE_CONFIG = {
             (279, 878)
         ]
     },
-    "Warrnambool (Digital) - 32802-D": {
+    "Warrnambool (Digital) - 32802-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (464, 478),
@@ -497,7 +389,7 @@ TEMPLATE_CONFIG = {
             (460, 728)
         ]
     },
-    "Wodonga (Digital) - 36903-D": {
+    "Wodonga (Digital) - 36903-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (1077, 502),
@@ -506,7 +398,7 @@ TEMPLATE_CONFIG = {
             (1078, 799)
         ]
     },
-    "Wodonga (Digital) - 36906-D": {
+    "Wodonga (Digital) - 36906-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (702, 524),
@@ -515,7 +407,7 @@ TEMPLATE_CONFIG = {
             (698, 726)
         ]
     },
-    "Wodonga (Digital) - 36907-D": {
+    "Wodonga (Digital) - 36907-D.png": {
         "split_ratio": 1.0,
         "LHS": [
             (762, 537),
