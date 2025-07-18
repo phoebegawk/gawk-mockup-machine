@@ -9,14 +9,14 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
-    /* Reduce top padding of the whole container */
+    /* Reduce top padding overall */
     .block-container {
         padding-top: 1rem;
     }
 
-    /* Add spacing below the header image */
+    /* Reduce spacing below the header image */
     .stImage img {
-        margin-bottom: 2rem; /* Adjust value as needed */
+        margin-bottom: 0.5rem;  /* Try 0rem or smaller if needed */
     }
     </style>
 """, unsafe_allow_html=True)
