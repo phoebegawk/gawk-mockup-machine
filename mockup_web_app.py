@@ -109,9 +109,10 @@ if st.button("Generate"):
 
 # Save and show preview thumbnails for uploaded artwork files
 if artwork_files:
-    for artwork_file in artwork_files:
-        image = Image.open(artwork_file)
-        st.image(image, caption=artwork_file.name, width=300)
+    cols = st.columns(min(4, len(artwork_files)))
+    for i, file in enumerate(artwork_files):
+        img_path = os.path.join("uploaded_artwork", file.name)
+        cols[i % 4].image(img_path, caption=file.name, use_container_width=True, output_format="JPEG", width=150)
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
