@@ -56,6 +56,14 @@ selected_templates = [name + ".png" for name in selected_display_names]
 # Artwork Upload
 artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg", "jpeg"], accept_multiple_files=True)
 
+st.markdown("""
+    <style>
+    .uploadedFileName {
+        display: none;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Preview uploaded artwork files
 if artwork_files:
     cols = st.columns(min(4, len(artwork_files)))
@@ -109,10 +117,9 @@ if st.button("Generate"):
 
 # Save and show preview thumbnails for uploaded artwork files
 if artwork_files:
-    cols = st.columns(min(4, len(artwork_files)))
-    for i, file in enumerate(artwork_files):
-        img_path = os.path.join("uploaded_artwork", file.name)
-        cols[i % 4].image(img_path, caption=file.name, use_container_width=True, output_format="JPEG", width=150)
+    for artwork_file in artwork_files:
+        image = Image.open(artwork_file)
+        st.image(image, caption=artwork_file.name, width=300)
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
