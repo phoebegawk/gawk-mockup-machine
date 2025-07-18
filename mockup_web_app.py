@@ -6,6 +6,20 @@ from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
+
+st.markdown("""
+    <style>
+    /* Reduce top padding of the app */
+    .block-container {
+        padding-top: 1rem;
+    }
+
+    /* Optional: tweak spacing below the header image */
+    .stImage {
+        margin-bottom: 0.5rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
    
 if "generated_outputs" not in st.session_state:
     st.session_state["generated_outputs"] = []
