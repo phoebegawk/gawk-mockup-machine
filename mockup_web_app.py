@@ -11,9 +11,19 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-    html, body, [class*="css"]  {
+    html, body, [class^="css"] {
         font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
+        font-weight: 600 !important;
+    }
+
+    .stTextInput > div > input,
+    .stButton button,
+    .stSelectbox div,
+    .stFileUploader,
+    .stMarkdown,
+    .stMultiSelect div {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 600 !important;
     }
     </style>
 """, unsafe_allow_html=True)
