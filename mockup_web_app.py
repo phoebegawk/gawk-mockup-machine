@@ -31,8 +31,8 @@ OUTPUT_DIR = "generated_mockups"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # UI Config
-st.set_page_config(page_title="Mock Up Web App", layout="wide")
-st.title("Mock Up Machine")
+st.set_page_config(page_title="Mock Up Machine", layout="wide")
+st.title("Mock Up Machine🧚🏻‍♀️")
 
 # Template Selection
 template_keys = list(TEMPLATE_COORDINATES.keys())
