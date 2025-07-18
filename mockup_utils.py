@@ -2,40 +2,44 @@ from PIL import Image
 import os
 from template_coordinates import TEMPLATE_COORDINATES
 
-def generate_mockup(template_path, artwork_path, client, campaign, date_str, output_dir):
-    # Load template and artwork
-    template_img = Image.open(template_path).convert("RGBA")
-    artwork_img = Image.open(artwork_path).convert("RGBA")
+def generate_filename(template_name, artwork_name, client_name, live_date):
+    """
+    Generates the final output filename with the format:
+    Site Name - Site Code - Client - Campaign - DDMMYY - Type
+    """
+    site = template_name.replace(".png", "")
+    campaign = artwork_name.split("-", 1)[-1].rsplit(".", 1)[0].strip()
+    filename = f"{site} - {client_name} - {campaign} - {live_date} - Mock Up.jpg"
+    return filename
 
-    # Get coordinates for template
-    template_filename = os.path.basename(template_path)
-    coords = TEMPLATE_COORDINATES.get(template_filename)
-    if not coords:
-        raise ValueError(f"No coordinates found for: {template_filename}")
+def generate_mockup(template_path, artwork_path, output_path, coords):
+    try:
+        template = Image.open(template_path).convert("RGBA")
+        artwork = Image.open(artwork_path).convert("RGBA")
 
-    # Resize artwork to match destination polygon bounding box (very simple logic)
-    # We assume coords form a rectangle for now
-    (x1, y1), (x2, y2), (x3, y3), (x4, y4) = coords
-    min_x = min(x1, x2, x3, x4)
-    max_x = max(x1, x2, x3, x4)
-    min_y = min(y1, y2, y3, y4)
-    max_y = max(y1, y2, y3, y4)
+        src_coords = [(0, 0), (artwork.width, 0), (artwork.width, artwork.height), (0, artwork.height)]
+        dst_coords = coords
 
-    width = max_x - min_x
-    height = max_y - min_y
-    artwork_resized = artwork_img.resize((width, height))
+        if len(dst_coords) != 4:
+            raise ValueError("Template coordinates must contain exactly 4 points.")
 
-    # Paste artwork onto template using simple paste (future: perspective transform)
-    template_img.paste(artwork_resized, (min_x, min_y), artwork_resized)
+        coeffs = find_perspective_transform(src_coords, dst_coords)
+        transformed_artwork = artwork.transform(template.size, Image.PERSPECTIVE, coeffs, Image.BICUBIC)
 
-    # Construct filename
-    template_name = os.path.splitext(template_filename)[0]  # remove .png
-    artwork_name = os.path.splitext(os.path.basename(artwork_path))[0]
-    campaign_suffix = "-".join(artwork_name.split("-")[1:]).strip() or "Artwork"
+        combined = Image.alpha_composite(template, transformed_artwork)
+        combined.convert("RGB").save(output_path, "JPEG", quality=95)
 
-    output_name = f"{template_name} - {client} - {campaign_suffix} - {date_str} - Mock Up.png"
-    output_path = os.path.join(output_dir, output_name)
+    except Exception as e:
+        raise RuntimeError(f"Error generating mockup: {e}")
 
-    # Save result
-    template_img.save(output_path)
-    return output_path
+def find_perspective_transform(src, dst):
+    from numpy import array, linalg
+
+    matrix = []
+    for p1, p2 in zip(dst, src):
+        matrix.append([p1[0], p1[1], 1, 0, 0, 0, -p2[0]*p1[0], -p2[0]*p1[1]])
+        matrix.append([0, 0, 0, p1[0], p1[1], 1, -p2[1]*p1[0], -p2[1]*p1[1]])
+    A = array(matrix)
+    B = array(src).reshape(8)
+    res = linalg.lstsq(A, B, rcond=None)[0]
+    return res.tolist()

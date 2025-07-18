@@ -4,10 +4,10 @@ TEMPLATE_COORDINATES = {
     "Ararat (Digital) - 33773-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (1010, 547),
-            (1633, 546),
-            (1633, 726),
-            (1007, 725),
+            (805, 438),
+            (1305, 438),
+            (1306, 583),
+            (805, 584),
         ]
     },
     "Ballarat (Digital) Wendouree - 33554-D.png": {
@@ -40,10 +40,10 @@ TEMPLATE_COORDINATES = {
     "Ballarat (Digital) Wendouree - 33554-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (811, 606),
-            (1574, 605),
-            (1578, 813),
-            (812, 816),
+            (645, 482),
+            (1259, 485),
+            (1263, 653),
+            (647, 656),
         ]
     },
     "Bega (Digital) - 25501-D.png": {
@@ -67,10 +67,10 @@ TEMPLATE_COORDINATES = {
     "Cobram (Digital) - 36442-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (257, 754),
-            (797, 752),
-            (796, 901),
-            (256, 906)
+            (179, 526),
+            (557, 524),
+            (558, 630),
+            (181, 633),
         ]
     },
 
@@ -86,28 +86,28 @@ TEMPLATE_COORDINATES = {
     "Geelong (Digital) Bellarine - 32242-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (819, 527),
-            (1284, 523),
-            (1287, 651),
-            (819, 657)
+            (612, 392),
+            (960, 393),
+            (611, 490),
+            (965, 488),
         ]
     },
     "Geelong (Digital) Belmont - 32163-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (563, 529),
-            (1317, 524),
-            (1322, 728),
-            (563, 732)
+            (418, 391),
+            (978, 385),
+            (982, 539),
+            (415, 540),
         ]
     },
     "Geelong (Digital) Grovedale - 32162-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (892, 644),
-            (1382, 637),
-            (1386, 775),
-            (891, 786)
+            (669, 483),
+            (1032, 474),
+            (1037, 582),
+            (669, 588),
         ]
     },
     "Geelong North (Digital) - 32151-D.png": {
@@ -140,10 +140,10 @@ TEMPLATE_COORDINATES = {
     "Gosford (Digital) - 22501-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (528, 480),
-            (935, 494),
-            (932, 678),
-            (523, 667)
+            (398, 353),
+            (698, 369),
+            (699, 509),
+            (393, 499),
         ]
     },
     "Hamilton (Digital) - 33005-D.png": {
@@ -221,10 +221,10 @@ TEMPLATE_COORDINATES = {
     "Mount Gambier (Digital) - 52903-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (1109, 820),
-            (1853, 869),
-            (1856, 1102),
-            (1108, 1080)
+            (833, 615),
+            (1390, 653),
+            (1390, 825),
+            (831, 805),
         ]
     },
     "Maitland (Digital) Rutherford - 23201-D.png": {
@@ -275,10 +275,10 @@ TEMPLATE_COORDINATES = {
     "Sale (Digital) - 38502-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (510, 484),
-            (1152, 480),
-            (1154, 667),
-            (510, 662)
+            (405, 384),
+            (922, 384),
+            (923, 535),
+            (407, 533),
         ]
     },
     "Stawell (Digital) - 33802-D.png": {
@@ -311,10 +311,10 @@ TEMPLATE_COORDINATES = {
     "Shepparton (Digital) - 36304-D-A.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (605, 457),
-            (1336, 577),
-            (1338, 799),
-            (600, 712)
+            (819, 538),
+            (1247, 514),
+            (1248, 640),
+            (818, 659),
         ]
     },
     "Shepparton (Digital) - 36304-D-B.png": {
@@ -342,6 +342,15 @@ TEMPLATE_COORDINATES = {
             (1522, 373),
             (1521, 736),
             (340, 752)
+        ]
+    },
+    "Singleton (Digital) - 23301-D.png": {
+        "split_ratio": 1.0,
+        "LHS": [
+            (846, 410),
+            (1128, 425),
+            (1130, 522),
+            (848, 511),
         ]
     },
     "Torquay (Digital) - 32281-D.png": {
