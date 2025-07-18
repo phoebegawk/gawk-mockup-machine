@@ -5,7 +5,10 @@ from PIL import Image
 from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 
-st.set_page_config(page_title="Gawk: Mock Up Machine")
+st.set_page_config(
+    page_title="Gawk: Mock Up Machine",
+    page_icon="🖼️",
+    layout="centered",
 
 if "generated_outputs" not in st.session_state:
     st.session_state["generated_outputs"] = []
