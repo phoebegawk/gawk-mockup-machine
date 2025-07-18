@@ -5,7 +5,7 @@ from PIL import Image
 from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 
-st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/MockUpMachine-Heading.png", use_column_width=True)
+st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_column_width=True)
    
 if "generated_outputs" not in st.session_state:
     st.session_state["generated_outputs"] = []
