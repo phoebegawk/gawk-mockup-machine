@@ -40,7 +40,7 @@ client_name = st.text_input("Client Name:")
 live_date = st.text_input("Live Date (DDMMYY):")
 
 # Make Mockups
-if st.button("✅ Make Mock Ups"):
+if st.button("Make Mock Ups"):
     if not selected_templates:
         st.warning("Please select at least one template.")
     elif not artwork_files:
