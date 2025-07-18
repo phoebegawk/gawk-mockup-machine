@@ -9,6 +9,14 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
+    .uploadedFileName {
+        display: none;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
     /* Reduce space around the header image */
     .block-container {
         padding-top: 1rem;
@@ -109,16 +117,9 @@ if st.button("Generate"):
 
 # Save and show preview thumbnails for uploaded artwork files
 if artwork_files:
-    os.makedirs("uploaded_artwork", exist_ok=True)
-    cols = st.columns(min(4, len(artwork_files)))
-    for i, artwork_file in enumerate(artwork_files):
-        artwork_path = os.path.join("uploaded_artwork", artwork_file.name)
-        with open(artwork_path, "wb") as f:
-            f.write(artwork_file.getbuffer())
-
-        # Display smaller preview only (no filename or metadata)
-        with cols[i % 4]:
-            st.image(image, width=300)  # adjust width to get ~⅓ scale depending on screen
+    for artwork_file in artwork_files:
+        image = Image.open(artwork_file)
+        st.image(image, caption=artwork_file.name, width=300)
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
