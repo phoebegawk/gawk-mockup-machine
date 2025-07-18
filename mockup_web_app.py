@@ -19,6 +19,26 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+    html, body, [class*="css"]  {
+        font-family: 'Montserrat', sans-serif !important;
+    }
+
+    label, .stTextInput > div > div, .stFileUploader > div > div, .stMultiSelect > div, .stButton > button {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 600 !important;
+    }
+
+    button[kind="primary"] {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 600 !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
 
 st.markdown("""
