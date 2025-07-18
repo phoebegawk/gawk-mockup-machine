@@ -54,7 +54,7 @@ if st.button("✅ Make Mock Ups"):
         for selected_template in selected_templates:
             if not selected_template.endswith(".png"):
                 selected_template += ".png"
-            template_path = os.path.expanduser(f"~/Projects/gawk-mockup-templates/Templates/Digital/{selected_template}")
+            template_path = os.path.join("Templates", "Digital", selected_template)
 
             template_data = TEMPLATE_COORDINATES.get(selected_template)
             if not template_data or "LHS" not in template_data:
