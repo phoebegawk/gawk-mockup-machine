@@ -56,6 +56,14 @@ selected_templates = [name + ".png" for name in selected_display_names]
 # Artwork Upload
 artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg", "jpeg"], accept_multiple_files=True)
 
+# Preview uploaded artwork files
+if artwork_files:
+    st.subheader("🖼️ Artwork Preview")
+    cols = st.columns(min(4, len(artwork_files)))
+    for i, file in enumerate(artwork_files):
+        img_path = os.path.join("uploaded_artwork", file.name)
+        cols[i % 4].image(img_path, caption=file.name, use_container_width=True)
+
 # Client & Date Input
 client_name = st.text_input("Client Name:")
 live_date = st.text_input("Live Date (DDMMYY):")
