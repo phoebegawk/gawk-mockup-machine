@@ -55,20 +55,13 @@ selected_templates = [name + ".png" for name in selected_display_names]
 
 # Artwork Upload
 artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg", "jpeg"], accept_multiple_files=True)
-st.markdown("""
-    <style>
-    .uploadedFileName {
-        display: none;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
-# Preview uploaded artwork files
+# Artwork preview with filename
 if artwork_files:
-    cols = st.columns(min(4, len(artwork_files)))
-    for i, file in enumerate(artwork_files):
-        img_path = os.path.join("uploaded_artwork", file.name)
-        cols[i % 4].image(img_path, use_container_width=True, output_format="JPEG", width=150)
+    st.subheader("🎨 Artwork Preview")
+    for file in artwork_files:
+        artwork_path = os.path.join("uploaded_artwork", file.name)
+        st.image(artwork_path, caption=file.name, width=300)
 
 # Client & Date Input
 client_name = st.text_input("Client Name:")
@@ -114,12 +107,13 @@ if st.button("Generate"):
                 except Exception as e:
                     st.error(f"❌ Error generating mockup for {selected_template}: {e}")
 
-# Artwork preview with filename
-if artwork_files:
-    st.subheader("🎨 Artwork Preview")
-    for file in artwork_files:
-        artwork_path = os.path.join("uploaded_artwork", file.name)
-        st.image(artwork_path, caption=file.name, width=200)
+# Display thumbnails in a 4-column layout after all are generated
+if st.session_state.generated_outputs:
+    st.subheader("🖼️ Generation Preview")
+    cols = st.columns(4)
+    for i, (filename, path) in enumerate(st.session_state.generated_outputs):
+        with cols[i % 4]:
+            st.image(path, caption=filename, use_container_width=True)
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
