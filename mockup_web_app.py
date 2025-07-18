@@ -9,14 +9,19 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
-    /* Reduce top padding overall */
+    /* Tighten the top section */
     .block-container {
-        padding-top: 0.5rem;
+        padding-top: 1rem;
     }
 
-    /* Reduce spacing below the header image */
+    /* Reduce space below the header image */
     .stImage img {
-        margin-bottom: 0rem;  /* Try 0rem or smaller if needed */
+        margin-bottom: 0rem;
+    }
+
+    /* Target the first field block (like Select Billboard) and reduce margin */
+    .stSelectbox, .stMultiSelect {
+        margin-top: 0rem;
     }
     </style>
 """, unsafe_allow_html=True)
