@@ -7,21 +7,13 @@ from template_coordinates import TEMPLATE_COORDINATES
 
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
 
-st.markdown("""
+sst.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-    html, body, [class^="css"] {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600 !important;
-    }
-
-    .stTextInput > div > input,
-    .stButton button,
-    .stSelectbox div,
-    .stFileUploader,
-    .stMarkdown,
-    .stMultiSelect div {
+    html, body, [class^="css"], .stApp, .stTextInput, .stTextInput input,
+    .stFileUploader label, .stFileUploader span, .stSelectbox label, .stMultiSelect label,
+    .stTextArea, .stTextArea textarea, .stButton button {
         font-family: 'Montserrat', sans-serif !important;
         font-weight: 600 !important;
     }
