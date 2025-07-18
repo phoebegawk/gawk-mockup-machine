@@ -29,8 +29,10 @@ st.set_page_config(page_title="Mock Up Web App", layout="wide")
 st.title("Mock Up Machine 🪄")
 
 # Template Selection
-template_names = list(TEMPLATE_COORDINATES.keys())
-selected_templates = st.multiselect("📍 Select Billboard(s):", template_names)
+template_keys = list(TEMPLATE_COORDINATES.keys())
+template_display_names = [name.replace(".png", "") for name in template_keys]
+selected_display_names = st.multiselect("📍 Select Billboard(s):", template_display_names)
+selected_templates = [name + ".png" for name in selected_display_names]
 
 # Artwork Upload
 artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg", "jpeg"], accept_multiple_files=True)
