@@ -11,12 +11,12 @@ st.markdown("""
     <style>
     /* Reduce top padding overall */
     .block-container {
-        padding-top: 1rem;
+        padding-top: 0.5rem;
     }
 
     /* Reduce spacing below the header image */
     .stImage img {
-        margin-bottom: 0.5rem;  /* Try 0rem or smaller if needed */
+        margin-bottom: 0rem;  /* Try 0rem or smaller if needed */
     }
     </style>
 """, unsafe_allow_html=True)
