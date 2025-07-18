@@ -9,14 +9,6 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
-    div[data-testid="stFileUploader"] > section > div {
-        display: none;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
     /* Reduce space around the header image */
     .block-container {
         padding-top: 1rem;
