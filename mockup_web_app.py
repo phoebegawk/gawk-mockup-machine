@@ -7,7 +7,7 @@ from template_coordinates import TEMPLATE_COORDINATES
 
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
 
-sst.markdown("""
+st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
