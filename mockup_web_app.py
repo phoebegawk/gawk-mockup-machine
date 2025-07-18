@@ -107,13 +107,18 @@ if st.button("Generate"):
                 except Exception as e:
                     st.error(f"❌ Error generating mockup for {selected_template}: {e}")
 
-# Display thumbnails
-if st.session_state.generated_outputs:
-    st.subheader("Generated Preview")
-    cols = st.columns(4)
-    for i, (filename, path) in enumerate(st.session_state.generated_outputs):
+# Save and show preview thumbnails for uploaded artwork files
+if artwork_files:
+    os.makedirs("uploaded_artwork", exist_ok=True)
+    cols = st.columns(min(4, len(artwork_files)))
+    for i, artwork_file in enumerate(artwork_files):
+        artwork_path = os.path.join("uploaded_artwork", artwork_file.name)
+        with open(artwork_path, "wb") as f:
+            f.write(artwork_file.getbuffer())
+
+        # Display smaller preview only (no filename or metadata)
         with cols[i % 4]:
-            st.image(path, caption=filename, use_container_width=True)
+            st.image(artwork_path, use_container_width=False, width=250)
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
