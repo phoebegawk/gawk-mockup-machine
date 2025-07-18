@@ -118,7 +118,7 @@ if artwork_files:
 
         # Display smaller preview only (no filename or metadata)
         with cols[i % 4]:
-            st.image(artwork_path, use_container_width=False, width=250)
+            st.image(image, width=300)  # adjust width to get ~⅓ scale depending on screen
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
