@@ -84,8 +84,6 @@ if st.button("Generate"):
                     generate_mockup(template_path, artwork_path, output_path, coords)
 
                     st.session_state.generated_outputs.append((final_filename, output_path))
-                    st.success(f"✅ Generated: {final_filename}")
-
                 except Exception as e:
                     st.error(f"❌ Error generating mockup for {selected_template}: {e}")
 
@@ -96,6 +94,9 @@ if st.session_state.generated_outputs:
     for i, (filename, path) in enumerate(st.session_state.generated_outputs):
         with cols[i % 4]:
             st.image(path, caption=filename, use_container_width=True)
+
+    for filename, _ in st.session_state.generated_outputs:
+        st.success(f"✅ Generated: {filename}")
 
 # Safely check and prepare generated_outputs
 if "generated_outputs" in st.session_state and st.session_state.generated_outputs:
