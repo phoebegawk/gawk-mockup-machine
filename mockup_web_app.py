@@ -123,8 +123,8 @@ if "generated_outputs" in st.session_state and st.session_state.generated_output
 
     # Create ZIP with all generated mockups
     with zipfile.ZipFile(zip_path, "w") as zipf:
-        for _, file_path in st.session_state.generated_outputs:
-            zipf.write(path, arcname=filename)
+        for filename, file_path in st.session_state.generated_outputs:
+            zipf.write(file_path, arcname=filename)
 
     # Provide download button
     with open(zip_path, "rb") as f:
