@@ -55,7 +55,6 @@ selected_templates = [name + ".png" for name in selected_display_names]
 
 # Artwork Upload
 artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg", "jpeg"], accept_multiple_files=True)
-
 st.markdown("""
     <style>
     .uploadedFileName {
@@ -115,11 +114,12 @@ if st.button("Generate"):
                 except Exception as e:
                     st.error(f"❌ Error generating mockup for {selected_template}: {e}")
 
-# Save and show preview thumbnails for uploaded artwork files
+# Artwork preview with filename
 if artwork_files:
-    for artwork_file in artwork_files:
-        image = Image.open(artwork_file)
-        st.image(image, caption=artwork_file.name, width=300)
+    st.subheader("🎨 Artwork Preview")
+    for file in artwork_files:
+        artwork_path = os.path.join("uploaded_artwork", file.name)
+        st.image(artwork_path, caption=file.name, width=200)
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
