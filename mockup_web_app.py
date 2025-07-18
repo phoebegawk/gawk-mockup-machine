@@ -1,38 +1,30 @@
-import streamlit as st
 import os
 import zipfile
 from PIL import Image
 from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
+import streamlit as st
 
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+    /* Apply Montserrat Semibold globally */
     html, body, [class*="css"] {
         font-family: 'Montserrat', sans-serif !important;
     }
 
-    h1, h2, h3, h4, h5, h6, label, span {
-        font-family: 'Montserrat', sans-serif !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
-    html, body, [class*="css"]  {
-        font-family: 'Montserrat', sans-serif !important;
-    }
-
-    label, .stTextInput > div > div, .stFileUploader > div > div, .stMultiSelect > div, .stButton > button {
+    /* Section labels, placeholders, and form field text */
+    .stMarkdown, .stTextInput label, .stTextInput input, 
+    .stFileUploader label, .stFileUploader .uploadButton,
+    .stMultiSelect label, .stMultiSelect, 
+    .stButton>button {
         font-family: 'Montserrat', sans-serif !important;
         font-weight: 600 !important;
     }
 
-    button[kind="primary"] {
+    /* Dropdown placeholder & options */
+    .stMultiSelect div[role="combobox"] {
         font-family: 'Montserrat', sans-serif !important;
         font-weight: 600 !important;
     }
