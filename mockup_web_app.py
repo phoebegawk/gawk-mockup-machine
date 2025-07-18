@@ -7,10 +7,9 @@ from template_coordinates import TEMPLATE_COORDINATES
 
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
 
-# Hide file name display below uploader
 st.markdown("""
     <style>
-    .uploaded-file {
+    div[data-testid="stFileUploader"] > section > div {
         display: none;
     }
     </style>
