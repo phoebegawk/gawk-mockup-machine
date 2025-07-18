@@ -6,29 +6,28 @@ from template_coordinates import TEMPLATE_COORDINATES
 import streamlit as st
 
 st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-    /* Apply Montserrat Semibold globally */
-    html, body, [class*="css"] {
-        font-family: 'Montserrat', sans-serif !important;
-    }
+  /* Apply Montserrat everywhere */
+  html, body, [class*="css"], .stApp {
+    font-family: 'Montserrat', sans-serif !important;
+  }
 
-    /* Section labels, placeholders, and form field text */
-    .stMarkdown, .stTextInput label, .stTextInput input, 
-    .stFileUploader label, .stFileUploader .uploadButton,
-    .stMultiSelect label, .stMultiSelect, 
-    .stButton>button {
-        font-family: 'Montserrat', sans-serif !important;
-        font-weight: 600 !important;
-    }
+  /* Headers, section labels, multi-select & placeholders */
+  .stMultiSelect, .stMultiSelect label,
+  .stTextInput label, .stFileUploader label,
+  .css-1v0mbdj {  /* this is label text above file upload and multi-select */
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+  }
 
-    /* Dropdown placeholder & options */
-    .stMultiSelect div[role="combobox"] {
-        font-family: 'Montserrat', sans-serif !important;
-        font-weight: 600 !important;
-    }
-    </style>
+  /* Button text */
+  .stButton>button {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+  }
+  </style>
 """, unsafe_allow_html=True)
 
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
