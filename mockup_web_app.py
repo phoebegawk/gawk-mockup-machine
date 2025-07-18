@@ -108,7 +108,6 @@ if st.button("Generate"):
 
 # Display thumbnails in a 4-column layout after all are generated
 if st.session_state.generated_outputs:
-    st.subheader("🖼️ Generation Preview")
     cols = st.columns(4)
     for i, (filename, path) in enumerate(st.session_state.generated_outputs):
         with cols[i % 4]:
