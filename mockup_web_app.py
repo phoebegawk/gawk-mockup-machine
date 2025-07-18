@@ -58,11 +58,10 @@ artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg",
 
 # Preview uploaded artwork files
 if artwork_files:
-    st.subheader("🖼️ Artwork Preview")
     cols = st.columns(min(4, len(artwork_files)))
     for i, file in enumerate(artwork_files):
         img_path = os.path.join("uploaded_artwork", file.name)
-        cols[i % 4].image(img_path, caption=file.name, use_container_width=True)
+        cols[i % 4].image(img_path, caption=file.name, use_container_width=True, output_format="JPEG", width=150)
 
 # Client & Date Input
 client_name = st.text_input("Client Name:")
