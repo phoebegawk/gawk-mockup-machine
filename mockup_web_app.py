@@ -5,12 +5,8 @@ from PIL import Image
 from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 
-st.set_page_config(
-    page_title="Gawk: Mock Up Machine",
-    page_icon="🖼️",
-    layout="centered",
-)
-    
+st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/MockUpMachine-Heading.png", use_column_width=True)
+   
 if "generated_outputs" not in st.session_state:
     st.session_state["generated_outputs"] = []
 
@@ -32,7 +28,6 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # UI Config
 st.set_page_config(page_title="Mock Up Machine", layout="wide")
-st.title("Mock Up Machine🧚🏻‍♀️")
 
 # Template Selection
 template_keys = list(TEMPLATE_COORDINATES.keys())
