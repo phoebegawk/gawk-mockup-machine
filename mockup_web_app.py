@@ -30,7 +30,7 @@ st.title("Mock Up Machine 🪄")
 
 # Template Selection
 template_names = list(TEMPLATE_COORDINATES.keys())
-selected_templates = st.multiselect("📍 Select Billboards:", template_names)
+selected_templates = st.multiselect("📍 Select Billboard(s):", template_names)
 
 # Artwork Upload
 artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg", "jpeg"], accept_multiple_files=True)
@@ -40,7 +40,7 @@ client_name = st.text_input("Client Name:")
 live_date = st.text_input("Live Date (DDMMYY):")
 
 # Make Mockups
-if st.button("Make Mock Ups"):
+if st.button("Generate"):
     if not selected_templates:
         st.warning("Please select at least one template.")
     elif not artwork_files:
