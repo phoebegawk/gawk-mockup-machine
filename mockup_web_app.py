@@ -5,25 +5,21 @@ from PIL import Image
 from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 
-st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
-
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-    /* Apply Montserrat to all headings */
-    h1, h2, h3, h4, h5, h6 {
+    html, body, [class*="css"] {
         font-family: 'Montserrat', sans-serif !important;
     }
 
-    /* Apply Montserrat to all labels (e.g., file picker, text fields, dropdowns) */
-    .st-emotion-cache-1kyxreq,
-    .st-emotion-cache-1v0mbdj,
-    .st-emotion-cache-13ln4jf {
+    h1, h2, h3, h4, h5, h6, label, span {
         font-family: 'Montserrat', sans-serif !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
+st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
 
 st.markdown("""
     <style>
