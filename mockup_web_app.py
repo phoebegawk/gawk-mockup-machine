@@ -11,11 +11,15 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+    /* Apply Montserrat to all headings */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Montserrat', sans-serif !important;
     }
 
-    .st-emotion-cache-1kyxreq {
+    /* Apply Montserrat to all labels (e.g., file picker, text fields, dropdowns) */
+    .st-emotion-cache-1kyxreq,
+    .st-emotion-cache-1v0mbdj,
+    .st-emotion-cache-13ln4jf {
         font-family: 'Montserrat', sans-serif !important;
     }
     </style>
