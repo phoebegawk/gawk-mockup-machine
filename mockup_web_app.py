@@ -7,6 +7,15 @@ from template_coordinates import TEMPLATE_COORDINATES
 
 st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
 
+# Hide file name display below uploader
+st.markdown("""
+    <style>
+    .uploaded-file {
+        display: none;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.markdown("""
     <style>
     /* Reduce space around the header image */
@@ -24,9 +33,6 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-   
-if "generated_outputs" not in st.session_state:
-    st.session_state["generated_outputs"] = []
 
 st.markdown("""
     <style>
@@ -38,6 +44,9 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
+if "generated_outputs" not in st.session_state:
+    st.session_state["generated_outputs"] = []
 
 # Paths
 TEMPLATE_DIR = "templates"
@@ -58,7 +67,6 @@ artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg",
 
 # Artwork preview with filename
 if artwork_files:
-    st.subheader("🎨 Artwork Preview")
     for file in artwork_files:
         artwork_path = os.path.join("uploaded_artwork", file.name)
         st.image(artwork_path, caption=file.name, width=300)
