@@ -11,16 +11,12 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-    html, body, [class*="css"] {
+    h1, h2, h3, h4, h5, h6 {
         font-family: 'Montserrat', sans-serif !important;
-        font-weight: 600 !important;
     }
 
-    .stApp, .stMarkdown, .stTextInput input, .stFileUploader label,
-    .stSelectbox label, .stMultiSelect label, .stTextArea textarea,
-    .stButton button, .css-10trblm, .css-1v0mbdj {
+    .st-emotion-cache-1kyxreq {
         font-family: 'Montserrat', sans-serif !important;
-        font-weight: 600 !important;
     }
     </style>
 """, unsafe_allow_html=True)
