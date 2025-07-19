@@ -146,7 +146,7 @@ if "generated_outputs" in st.session_state and st.session_state.generated_output
 
     # Provide download button
     with col3:
-    if st.session_state.generated_outputs:
+        if st.session_state.generated_outputs:
         with open(zip_path, "rb") as f:
             st.download_button(
                 label="Download Mock Ups",
