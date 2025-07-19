@@ -16,17 +16,13 @@ st.markdown("""
         font-size: 18px !important;
         font-family: 'Montserrat', sans-serif !important;
     }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-        .block-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+    .block-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 1rem !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
