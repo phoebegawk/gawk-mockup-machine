@@ -9,7 +9,20 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
-    /* Left-align the file uploader text */
+    html, body, [class*="css"]  {
+        font-size: 18px !important;
+    }
+
+    label, button, input, textarea, select {
+        font-size: 18px !important;
+        font-family: 'Montserrat', sans-serif !important;
+    }
+
+    .block-container {
+        padding-top: 2rem !important;
+    }
+
+    /* Ensure file uploader text is left-aligned */
     section[data-testid="stFileUploader"] label > div {
         display: flex;
         flex-direction: column;
