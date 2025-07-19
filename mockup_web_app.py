@@ -5,7 +5,7 @@ from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 import streamlit as st
 
-st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-MockUpMachine.png", use_container_width=True)
+st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-UI.png", use_container_width=True)
 
 st.markdown("""
     <style>
@@ -21,6 +21,30 @@ st.markdown("""
     /* Target select box spacing */
     .stMultiSelect, .stSelectbox {
         margin-top: 0rem !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
+    /* Increase label and text input size */
+    label, .stTextInput label, .stMultiSelect label {
+        font-size: 1.1rem !important;
+    }
+
+    /* Increase multiselect and text input font */
+    .stTextInput input, .stMultiSelect div[data-baseweb="tag"] {
+        font-size: 1.1rem !important;
+    }
+
+    /* Increase button text */
+    button[kind="primary"] {
+        font-size: 1.1rem !important;
+    }
+
+    /* Increase general body text */
+    html, body, [class*="css"]  {
+        font-size: 1.05rem;
     }
     </style>
 """, unsafe_allow_html=True)
