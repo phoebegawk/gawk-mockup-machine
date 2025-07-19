@@ -26,8 +26,11 @@ def generate_mockup(template_path, artwork_path, output_path, coords):
         coeffs = find_perspective_transform(src_coords, dst_coords)
         transformed_artwork = artwork.transform(template.size, Image.PERSPECTIVE, coeffs, Image.BICUBIC)
 
-        template.paste(transformed_artwork, (0, 0), transformed_artwork)
-        template.convert("RGB").save(output_path, "JPEG", quality=95)
+# Start with a blank transparent canvas
+    base = Image.new("RGBA", template.size, (0, 0, 0, 0))
+    base.paste(transformed_artwork, (0, 0), transformed_artwork)
+    base.paste(template, (0, 0), template)
+    base.convert("RGB").save(output_path, "JPEG", quality=95)
 
     except Exception as e:
         raise RuntimeError(f"Error generating mockup: {e}")
