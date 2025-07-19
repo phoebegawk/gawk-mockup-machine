@@ -82,13 +82,17 @@ if artwork_files:
 client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
-# --- Centered row with Generate & Download buttons ---
-generate_col, download_col, _ = st.columns([1, 1, 2])
+# --- Perfectly Centered Row with Conditional Download Button ---
+st.markdown("""
+    <div style='display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem;'>
+""", unsafe_allow_html=True)
 
-with generate_col:
+col1, col2 = st.columns([1, 1], gap="large")
+
+with col1:
     generate_clicked = st.button("Generate", use_container_width=True)
 
-with download_col:
+with col2:
     if st.session_state.generated_outputs:
         zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
         zip_path = os.path.join("generated_mockups", zip_name)
@@ -103,7 +107,7 @@ with download_col:
                 data=f,
                 file_name=zip_name,
                 mime="application/zip",
-                key="download_button",
+                key="download_button_ready",
                 use_container_width=True
             )
     else:
@@ -113,9 +117,11 @@ with download_col:
             file_name="",
             mime="application/zip",
             disabled=True,
-            key="download_button",
+            key="download_button_disabled",
             use_container_width=True
         )
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 # Trigger generation logic
 if generate_clicked:
