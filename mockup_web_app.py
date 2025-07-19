@@ -83,22 +83,10 @@ client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
 # --- Centered row with Generate & Download buttons ---
-st.markdown("""
-    <style>
-    .button-row {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-    </style>
-    <div class="button-row">
-""", unsafe_allow_html=True)
-
-generate_col, download_col = st.columns([1, 1])
+generate_col, download_col, _ = st.columns([1, 1, 2])
 
 with generate_col:
-    generate_clicked = st.button("Generate", key="generate_button")
+    generate_clicked = st.button("Generate", use_container_width=True)
 
 with download_col:
     if st.session_state.generated_outputs:
@@ -115,7 +103,8 @@ with download_col:
                 data=f,
                 file_name=zip_name,
                 mime="application/zip",
-                key="download_button"
+                key="download_button",
+                use_container_width=True
             )
     else:
         st.download_button(
@@ -124,10 +113,9 @@ with download_col:
             file_name="",
             mime="application/zip",
             disabled=True,
-            key="download_button"
+            key="download_button",
+            use_container_width=True
         )
-
-st.markdown("</div>", unsafe_allow_html=True)
 
 # Trigger generation logic
 if generate_clicked:
