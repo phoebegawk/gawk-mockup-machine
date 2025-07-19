@@ -65,7 +65,7 @@ if artwork_files:
         with open(artwork_path, "wb") as f:
             f.write(file.getbuffer())
         with cols[idx % 4]:
-            st.image(artwork_path, caption=file.name, width=300)
+            st.image(artwork_path, caption=file.name, width=200)
 
 # Client & Date Input
 client_name = st.text_input("Client Name:")
