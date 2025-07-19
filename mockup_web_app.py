@@ -155,53 +155,6 @@ if generate_clicked:
                 except Exception as e:
                     st.error(f"❌ Error generating mockup for {selected_template}: {e}")
 
-# Recreate button row again with download enabled
-if st.session_state.generated_outputs:
-    col1, col2, col3 = st.columns([1, 1, 1])
-    with col2:
-        zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
-        zip_path = os.path.join("generated_mockups", zip_name)
-
-        with zipfile.ZipFile(zip_path, "w") as zipf:
-            for filename, file_path in st.session_state.generated_outputs:
-                zipf.write(file_path, arcname=filename)
-
-        with open(zip_path, "rb") as f:
-            st.download_button(
-                label="Download Mock Ups",
-                data=f,
-                file_name=zip_name,
-                mime="application/zip"
-            )
-            
-        for selected_template in selected_templates:
-            if not selected_template.endswith(".png"):
-                selected_template += ".png"
-            template_path = os.path.join("Templates", "Digital", selected_template)
-
-            template_data = TEMPLATE_COORDINATES.get(selected_template)
-            if not template_data or "LHS" not in template_data:
-                st.error(f"Coordinates not found or malformed for {selected_template}.")
-                continue
-            coords = template_data["LHS"]
-
-            for artwork_file in artwork_files:
-                try:
-                    artwork_path = os.path.join("uploaded_artwork", artwork_file.name)
-                    os.makedirs("uploaded_artwork", exist_ok=True)
-                    with open(artwork_path, "wb") as f:
-                        f.write(artwork_file.getbuffer())
-
-                    campaign_name = artwork_file.name.split("-", 1)[-1].rsplit(".", 1)[0].strip()
-                    final_filename = generate_filename(selected_template, client_name, campaign_name, live_date)
-                    output_path = os.path.join(OUTPUT_DIR, final_filename)
-
-                    generate_mockup(template_path, artwork_path, output_path, coords)
-
-                    st.session_state.generated_outputs.append((final_filename, output_path))
-                except Exception as e:
-                    st.error(f"❌ Error generating mockup for {selected_template}: {e}")
-
 # Display thumbnails in a 4-column layout after all are generated
 if st.session_state.generated_outputs:
     cols = st.columns(4)
