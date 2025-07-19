@@ -127,6 +127,9 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # Trigger generation logic
 if generate_clicked:
+    # Clear previous outputs
+    st.session_state["generated_outputs"] = []
+
     if not selected_templates:
         st.warning("Please select at least one template.")
     elif not artwork_files:
