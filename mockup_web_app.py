@@ -83,18 +83,32 @@ client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
 # --- Centered row with Generate & Download buttons ---
-st.markdown("<div style='text-align:center;'>", unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    .button-row {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    </style>
+    <div class="button-row">
+""", unsafe_allow_html=True)
 
-cols = st.columns([1, 1])
+generate_col, download_col = st.columns([1, 1])
 
-with cols[0]:
-    generate_clicked = st.button("Generate")
+with generate_col:
+    generate_clicked = st.button("Generate", key="generate_button")
 
-with cols[1]:
-    zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
-    zip_path = os.path.join("generated_mockups", zip_name)
-
+with download_col:
     if st.session_state.generated_outputs:
+        zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
+        zip_path = os.path.join("generated_mockups", zip_name)
+
+        with zipfile.ZipFile(zip_path, "w") as zipf:
+            for filename, file_path in st.session_state.generated_outputs:
+                zipf.write(file_path, arcname=filename)
+
         with open(zip_path, "rb") as f:
             st.download_button(
                 label="Download Mock Ups",
