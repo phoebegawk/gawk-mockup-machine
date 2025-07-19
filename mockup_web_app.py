@@ -9,42 +9,12 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
-    /* Reduce space around the header image */
-    .block-container {
-        padding-top: 1rem;
-    }
-
-    .stImage {
-        margin-bottom: -1rem !important;
-    }
-
-    /* Target select box spacing */
-    .stMultiSelect, .stSelectbox {
-        margin-top: 0rem !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    /* Increase label and text input size */
-    label, .stTextInput label, .stMultiSelect label {
-        font-size: 1.1rem !important;
-    }
-
-    /* Increase multiselect and text input font */
-    .stTextInput input, .stMultiSelect div[data-baseweb="tag"] {
-        font-size: 1.1rem !important;
-    }
-
-    /* Increase button text */
-    button[kind="primary"] {
-        font-size: 1.1rem !important;
-    }
-
-    /* Increase general body text */
     html, body, [class*="css"]  {
-        font-size: 1.05rem;
+        font-size: 18px !important;
+    }
+    label, button, input, textarea, select {
+        font-size: 18px !important;
+        font-family: 'Montserrat', sans-serif !important;
     }
     </style>
 """, unsafe_allow_html=True)
