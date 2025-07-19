@@ -144,9 +144,9 @@ if "generated_outputs" in st.session_state and st.session_state.generated_output
         for filename, file_path in st.session_state.generated_outputs:
             zipf.write(file_path, arcname=filename)
 
-    # Provide download button
-    with col3:
-        if st.session_state.generated_outputs:
+# Provide download button
+with col3:
+    if st.session_state.generated_outputs:
         with open(zip_path, "rb") as f:
             st.download_button(
                 label="Download Mock Ups",
@@ -156,4 +156,10 @@ if "generated_outputs" in st.session_state and st.session_state.generated_output
                 key="download_button"
             )
     else:
-        st.button("Download Mock Ups", disabled=True)
+        st.download_button(
+            label="Download Mock Ups",
+            data=b"",
+            file_name="",
+            disabled=True,
+            key="download_button"
+        )
