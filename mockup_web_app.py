@@ -63,7 +63,7 @@ if artwork_files:
         artwork_path = os.path.join("uploaded_artwork", file.name)
         with open(artwork_path, "wb") as f:
             f.write(file.getbuffer())
-        st.image(artwork_path, caption=file.name, width=300)
+        st.image(artwork_path, caption=file.name, width=400)
 
 # Client & Date Input
 client_name = st.text_input("Client Name:")
