@@ -82,33 +82,39 @@ if artwork_files:
 client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
-# Buttons row
-# Center both buttons together
-with st.container():
-    st.markdown('<div style="display: flex; justify-content: center; gap: 1rem;">', unsafe_allow_html=True)
+# Centered row with both buttons side by side
+st.markdown("""
+<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+    <form action="#" method="post">
+        <button type="submit" style="padding: 0.5rem 1.5rem; font-size: 1rem;">Generate</button>
+    </form>
+""", unsafe_allow_html=True)
 
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        generate_clicked = st.button("Generate", key="generate_button")
+if st.session_state.generated_outputs:
+    zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
+    zip_path = os.path.join("generated_mockups", zip_name)
 
-    with col2:
-        if st.session_state.generated_outputs:
-            with open(zip_path, "rb") as f:
-                st.download_button(
-                    label="Download Mock Ups",
-                    data=f,
-                    file_name=zip_name,
-                    mime="application/zip",
-                    key="download_button"
-                )
-        else:
-            st.download_button(
-                label="Download Mock Ups",
-                data=b"",
-                file_name="",
-                disabled=True,
-                key="download_button"
-            )
+    with zipfile.ZipFile(zip_path, "w") as zipf:
+        for filename, file_path in st.session_state.generated_outputs:
+            zipf.write(file_path, arcname=filename)
+
+    with open(zip_path, "rb") as f:
+        st.download_button(
+            label="Download Mock Ups",
+            data=f,
+            file_name=zip_name,
+            mime="application/zip"
+        )
+else:
+    st.download_button(
+        label="Download Mock Ups",
+        data=b"",
+        file_name="",
+        mime="application/zip",
+        disabled=True
+    )
+
+st.markdown("</div>", unsafe_allow_html=True)
             
     st.markdown('</div>', unsafe_allow_html=True)
     if not selected_templates:
