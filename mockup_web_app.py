@@ -58,8 +58,11 @@ artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg",
 
 # Artwork preview with filename
 if artwork_files:
+    os.makedirs("uploaded_artwork", exist_ok=True)
     for file in artwork_files:
         artwork_path = os.path.join("uploaded_artwork", file.name)
+        with open(artwork_path, "wb") as f:
+            f.write(file.getbuffer())
         st.image(artwork_path, caption=file.name, width=300)
 
 # Client & Date Input
