@@ -82,7 +82,7 @@ if artwork_files:
 client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
-# --- Perfectly Centered Row with Conditional Download Button ---
+# --- Centered Row with Always-Visible Buttons ---
 st.markdown("""
     <div style='display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem;'>
 """, unsafe_allow_html=True)
@@ -93,10 +93,12 @@ with col1:
     generate_clicked = st.button("Generate", use_container_width=True)
 
 with col2:
-    if st.session_state.generated_outputs:
-        zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
-        zip_path = os.path.join("generated_mockups", zip_name)
+    zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
+    zip_path = os.path.join("generated_mockups", zip_name)
 
+    is_ready = bool(st.session_state.generated_outputs)
+
+    if is_ready:
         with zipfile.ZipFile(zip_path, "w") as zipf:
             for filename, file_path in st.session_state.generated_outputs:
                 zipf.write(file_path, arcname=filename)
@@ -116,8 +118,8 @@ with col2:
             data=b"",
             file_name="",
             mime="application/zip",
-            disabled=True,
             key="download_button_disabled",
+            disabled=True,
             use_container_width=True
         )
 
