@@ -5,7 +5,7 @@ from mockup_utils import generate_mockup, generate_filename
 from template_coordinates import TEMPLATE_COORDINATES
 import streamlit as st
 
-st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Header-UI.png", use_container_width=True)
+st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/UI-Header.png", use_container_width=True)
 
 st.markdown("""
     <style>
