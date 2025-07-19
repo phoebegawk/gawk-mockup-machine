@@ -23,6 +23,10 @@ st.markdown("""
         text-align: center;
         padding-top: 1rem !important;
     }
+    section[data-testid="stFileUploader"] > div > div {
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
