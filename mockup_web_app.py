@@ -94,8 +94,8 @@ if artwork_files:
             st.markdown("<div style='margin-bottom: -10px;'></div>", unsafe_allow_html=True)
 
 # Client & Date Input
-client_name = st.text_input("Client Name:")
-live_date = st.text_input("Live Date (DDMMYY):")
+client_name = st.text_input("🔍 Client Name:")
+live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
 # Make Mockups
 if st.button("Generate"):
