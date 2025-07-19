@@ -83,9 +83,34 @@ client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
 # Buttons row
-col1, col2, col3 = st.columns([1, 1, 1])
-with col2:
-    generate_clicked = st.button("Generate")
+# Center both buttons together
+with st.container():
+    st.markdown('<div style="display: flex; justify-content: center; gap: 1rem;">', unsafe_allow_html=True)
+
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        generate_clicked = st.button("Generate", key="generate_button")
+
+    with col2:
+        if st.session_state.generated_outputs:
+            with open(zip_path, "rb") as f:
+                st.download_button(
+                    label="Download Mock Ups",
+                    data=f,
+                    file_name=zip_name,
+                    mime="application/zip",
+                    key="download_button"
+                )
+        else:
+            st.download_button(
+                label="Download Mock Ups",
+                data=b"",
+                file_name="",
+                disabled=True,
+                key="download_button"
+            )
+            
+    st.markdown('</div>', unsafe_allow_html=True)
     if not selected_templates:
         st.warning("Please select at least one template.")
     elif not artwork_files:
