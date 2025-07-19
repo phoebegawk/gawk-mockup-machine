@@ -27,10 +27,11 @@ st.markdown("""
         flex-direction: column !important;
         align-items: flex-start !important;
     }
-
     section[data-testid="stFileUploader"] .uploadedFileName {
         text-align: left !important;
     }
+    </style>
+""", unsafe_allow_html=True)
 
 if "generated_outputs" not in st.session_state:
     st.session_state["generated_outputs"] = []
