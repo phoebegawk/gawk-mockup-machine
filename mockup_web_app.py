@@ -59,7 +59,6 @@ artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg",
 # Artwork preview with filename
 if artwork_files:
     os.makedirs("uploaded_artwork", exist_ok=True)
-    st.markdown("### 🎨 Artwork Preview")
     cols = st.columns(4)
 
     for idx, file in enumerate(artwork_files):
