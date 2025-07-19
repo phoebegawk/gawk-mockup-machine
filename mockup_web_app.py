@@ -9,26 +9,16 @@ st.image("https://raw.githubusercontent.com/phoebegawk/mockup-machine/main/Heade
 
 st.markdown("""
     <style>
-    html, body, [class*="css"]  {
-        font-size: 18px !important;
-    }
-    label, button, input, textarea, select {
-        font-size: 18px !important;
-        font-family: 'Montserrat', sans-serif !important;
-    }
-    .block-container {
+    /* Left-align the file uploader text */
+    section[data-testid="stFileUploader"] label > div {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding-top: 1rem !important;
+        align-items: flex-start;
+        text-align: left;
     }
-    section[data-testid="stFileUploader"] > div {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-    }
-    section[data-testid="stFileUploader"] .uploadedFileName {
-        text-align: left !important;
+
+    section[data-testid="stFileUploader"] p {
+        text-align: left;
     }
     </style>
 """, unsafe_allow_html=True)
