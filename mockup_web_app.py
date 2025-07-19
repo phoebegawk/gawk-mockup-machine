@@ -36,6 +36,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+    .stButton > button {
+        display: block;
+        margin: 0 auto;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 if "generated_outputs" not in st.session_state:
     st.session_state["generated_outputs"] = []
 
