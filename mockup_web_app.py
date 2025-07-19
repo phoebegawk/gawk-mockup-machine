@@ -59,14 +59,15 @@ artwork_files = st.file_uploader("🖼️ Upload Artwork File(s):", type=["jpg",
 # Artwork preview with filename
 if artwork_files:
     os.makedirs("uploaded_artwork", exist_ok=True)
-    cols = st.columns(4)
-
+    
+    cols = st.columns(4)  # Up to 4 previews per row
     for idx, file in enumerate(artwork_files):
         artwork_path = os.path.join("uploaded_artwork", file.name)
         with open(artwork_path, "wb") as f:
             f.write(file.getbuffer())
         with cols[idx % 4]:
-            st.image(artwork_path, caption=file.name, width=200)
+            st.image(artwork_path, caption=file.name, width=250)
+            st.markdown("<div style='margin-bottom: -10px;'></div>", unsafe_allow_html=True)
 
 # Client & Date Input
 client_name = st.text_input("Client Name:")
