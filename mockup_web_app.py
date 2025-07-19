@@ -82,41 +82,14 @@ if artwork_files:
 client_name = st.text_input("🔍 Client Name:")
 live_date = st.text_input("🗓️ Live Date (DDMMYY):")
 
-# Centered row with both buttons side by side
-st.markdown("""
-<div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
-    <form action="#" method="post">
-        <button type="submit" style="padding: 0.5rem 1.5rem; font-size: 1rem;">Generate</button>
-    </form>
-""", unsafe_allow_html=True)
+# Centered row with Generate and conditional Download buttons
+col1, col2, col3 = st.columns([1, 1, 1])
 
-if st.session_state.generated_outputs:
-    zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
-    zip_path = os.path.join("generated_mockups", zip_name)
+with col2:
+    generate_clicked = st.button("Generate")
 
-    with zipfile.ZipFile(zip_path, "w") as zipf:
-        for filename, file_path in st.session_state.generated_outputs:
-            zipf.write(file_path, arcname=filename)
-
-    with open(zip_path, "rb") as f:
-        st.download_button(
-            label="Download Mock Ups",
-            data=f,
-            file_name=zip_name,
-            mime="application/zip"
-        )
-else:
-    st.download_button(
-        label="Download Mock Ups",
-        data=b"",
-        file_name="",
-        mime="application/zip",
-        disabled=True
-    )
-
-st.markdown("</div>", unsafe_allow_html=True)
-            
-    st.markdown('</div>', unsafe_allow_html=True)
+# Trigger generation logic
+if generate_clicked:
     if not selected_templates:
         st.warning("Please select at least one template.")
     elif not artwork_files:
@@ -127,6 +100,53 @@ st.markdown("</div>", unsafe_allow_html=True)
         if "generated_outputs" not in st.session_state:
             st.session_state.generated_outputs = []
 
+        for selected_template in selected_templates:
+            if not selected_template.endswith(".png"):
+                selected_template += ".png"
+            template_path = os.path.join("Templates", "Digital", selected_template)
+
+            template_data = TEMPLATE_COORDINATES.get(selected_template)
+            if not template_data or "LHS" not in template_data:
+                st.error(f"Coordinates not found or malformed for {selected_template}.")
+                continue
+            coords = template_data["LHS"]
+
+            for artwork_file in artwork_files:
+                try:
+                    artwork_path = os.path.join("uploaded_artwork", artwork_file.name)
+                    os.makedirs("uploaded_artwork", exist_ok=True)
+                    with open(artwork_path, "wb") as f:
+                        f.write(artwork_file.getbuffer())
+
+                    campaign_name = artwork_file.name.split("-", 1)[-1].rsplit(".", 1)[0].strip()
+                    final_filename = generate_filename(selected_template, client_name, campaign_name, live_date)
+                    output_path = os.path.join(OUTPUT_DIR, final_filename)
+
+                    generate_mockup(template_path, artwork_path, output_path, coords)
+
+                    st.session_state.generated_outputs.append((final_filename, output_path))
+                except Exception as e:
+                    st.error(f"❌ Error generating mockup for {selected_template}: {e}")
+
+# Recreate button row again with download enabled
+if st.session_state.generated_outputs:
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        zip_name = f"Mock_Ups_{client_name}_{live_date}.zip"
+        zip_path = os.path.join("generated_mockups", zip_name)
+
+        with zipfile.ZipFile(zip_path, "w") as zipf:
+            for filename, file_path in st.session_state.generated_outputs:
+                zipf.write(file_path, arcname=filename)
+
+        with open(zip_path, "rb") as f:
+            st.download_button(
+                label="Download Mock Ups",
+                data=f,
+                file_name=zip_name,
+                mime="application/zip"
+            )
+            
         for selected_template in selected_templates:
             if not selected_template.endswith(".png"):
                 selected_template += ".png"
