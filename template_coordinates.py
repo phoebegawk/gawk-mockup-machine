@@ -128,15 +128,6 @@ TEMPLATE_COORDINATES = {
             (682, 564),
         ]
     },
-    "Geelong (Digital) Belmont - 32163-D.png": {
-        "split_ratio": 1.0,
-        "LHS": [
-            (506, 476),
-            (1188, 472),
-            (1192, 657),
-            (507, 658),
-        ]
-    },
     "Gosford (Digital) - 22501-D.png": {
         "split_ratio": 1.0,
         "LHS": [
