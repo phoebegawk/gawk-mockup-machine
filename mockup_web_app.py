@@ -159,6 +159,11 @@ if generate_clicked:
                     campaign_name = artwork_file.name.split("-", 1)[-1].rsplit(".", 1)[0].strip()
                     final_filename = generate_filename(selected_template, client_name, campaign_name, live_date)
                     output_path = os.path.join(OUTPUT_DIR, final_filename)
+                    base, ext = os.path.splitext(output_path)
+                    counter = 1
+                    while os.path.exists(output_path):
+                        output_path = f"{base}_{counter}{ext}"
+                        counter += 1
 
                     generate_mockup(template_path, artwork_path, output_path, coords)
 
