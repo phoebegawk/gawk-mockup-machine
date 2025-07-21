@@ -95,10 +95,10 @@ TEMPLATE_COORDINATES = {
     "Geelong (Digital) Belmont - 32163-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (418, 391),
-            (978, 385),
-            (982, 539),
-            (415, 540),
+            (416, 392),
+            (980, 388),
+            (981, 542),
+            (417, 543),
         ]
     },
     "Geelong (Digital) Grovedale - 32162-D.png": {
