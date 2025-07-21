@@ -163,12 +163,12 @@ if generate_clicked:
                     generate_mockup(template_path, artwork_path, output_path, coords)
 
                     st.session_state["generated_outputs"].append((final_filename, output_path))
-                    except Exception as e:
+                except Exception as e:
                     st.session_state["generation_errors"].append(
                         f"❌ Error generating mockup for {selected_template}: {e}"
                     )
 
-    st.experimental_rerun()
+    st.rerun()
 
 # Display thumbnails in a 4-column layout after all are generated
 if st.session_state.generated_outputs:
