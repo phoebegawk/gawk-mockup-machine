@@ -129,14 +129,14 @@ st.markdown("</div>", unsafe_allow_html=True)
 if generate_clicked:
     # Clear previous outputs and errors
     st.session_state["generated_outputs"] = []
-    error_messages = []
+    st.session_state["generation_errors"] = []
 
     if not selected_templates:
-        st.warning("Please select at least one template.")
+        st.session_state["generation_errors"].append("Please select at least one template.")
     elif not artwork_files:
-        st.warning("Please upload at least one artwork file.")
+        st.session_state["generation_errors"].append("Please upload at least one artwork file.")
     elif not client_name or not live_date:
-        st.warning("Please enter client name and live date.")
+        st.session_state["generation_errors"].append("Please enter client name and live date.")
     else:
         for selected_template in selected_templates:
             if not selected_template.endswith(".png"):
@@ -145,7 +145,7 @@ if generate_clicked:
 
             template_data = TEMPLATE_COORDINATES.get(selected_template)
             if not template_data or "LHS" not in template_data:
-                error_messages.append(f"Coordinates not found or malformed for {selected_template}.")
+                st.session_state["generation_errors"].append(f"Coordinates not found or malformed for {selected_template}.")
                 continue
             coords = template_data["LHS"]
 
@@ -162,16 +162,13 @@ if generate_clicked:
 
                     generate_mockup(template_path, artwork_path, output_path, coords)
 
-                    st.session_state.generated_outputs.append((final_filename, output_path))
+                    st.session_state["generated_outputs"].append((final_filename, output_path))
                 except Exception as e:
-                    error_messages.append(f"{selected_template} → {e}")
+                    st.session_state["generation_errors"].append(
+                        f"❌ Error generating mockup for {selected_template}: {e}"
+                    )
 
-        # Show errors AFTER all attempts
-        for msg in error_messages:
-            st.error(f"❌ {msg}")
-
-        # Delay rerun just slightly to allow error rendering
-        st.markdown("<script>setTimeout(() => window.location.reload(), 500);</script>", unsafe_allow_html=True)
+    st.experimental_rerun()
 
 # Display thumbnails in a 4-column layout after all are generated
 if st.session_state.generated_outputs:
@@ -182,6 +179,11 @@ if st.session_state.generated_outputs:
 
     for filename, _ in st.session_state.generated_outputs:
         st.success(f"✅ Generated: {filename}")
+
+# Display error messages after generation
+if "generation_errors" in st.session_state:
+    for error in st.session_state["generation_errors"]:
+        st.error(error)
 
 # Safely check and prepare generated_outputs
 if "generated_outputs" in st.session_state and st.session_state.generated_outputs:
