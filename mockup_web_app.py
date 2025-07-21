@@ -127,8 +127,9 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # Trigger generation logic
 if generate_clicked:
-    # Clear previous outputs
+    # Clear previous outputs and errors
     st.session_state["generated_outputs"] = []
+    error_messages = []
 
     if not selected_templates:
         st.warning("Please select at least one template.")
@@ -137,9 +138,6 @@ if generate_clicked:
     elif not client_name or not live_date:
         st.warning("Please enter client name and live date.")
     else:
-        if "generated_outputs" not in st.session_state:
-            st.session_state.generated_outputs = []
-
         for selected_template in selected_templates:
             if not selected_template.endswith(".png"):
                 selected_template += ".png"
@@ -147,7 +145,7 @@ if generate_clicked:
 
             template_data = TEMPLATE_COORDINATES.get(selected_template)
             if not template_data or "LHS" not in template_data:
-                st.error(f"Coordinates not found or malformed for {selected_template}.")
+                error_messages.append(f"Coordinates not found or malformed for {selected_template}.")
                 continue
             coords = template_data["LHS"]
 
@@ -166,10 +164,14 @@ if generate_clicked:
 
                     st.session_state.generated_outputs.append((final_filename, output_path))
                 except Exception as e:
-                    st.error(f"❌ Error generating mockup for {selected_template}: {e}")
+                    error_messages.append(f"{selected_template} → {e}")
 
-    # Rerun to refresh UI and activate download button
-    st.rerun()
+        # Show errors AFTER all attempts
+        for msg in error_messages:
+            st.error(f"❌ {msg}")
+
+        # Delay rerun just slightly to allow error rendering
+        st.markdown("<script>setTimeout(() => window.location.reload(), 500);</script>", unsafe_allow_html=True)
 
 # Display thumbnails in a 4-column layout after all are generated
 if st.session_state.generated_outputs:
