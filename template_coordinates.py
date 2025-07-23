@@ -140,10 +140,10 @@ TEMPLATE_COORDINATES = {
     "Hamilton (Digital) - 33005-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (558, 588),
-            (1580, 595),
-            (1576, 887),
-            (553, 878),
+            (489, 374),
+            (1244, 383),
+            (1240, 585),
+            (487, 574),
         ]
     },
     "Hastings (Digital) - 39152-D.png": {
