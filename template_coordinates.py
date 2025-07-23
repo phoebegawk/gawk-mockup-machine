@@ -158,10 +158,10 @@ TEMPLATE_COORDINATES = {
     "Horsham (Digital) - 34006-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (669, 395),
-            (1378, 402),
-            (1380, 604),
-            (672, 602),
+            (690, 390),
+            (1360, 410),
+            (1380, 610),
+            (670, 600)
         ]
     },
     "Melton (Digital) - 33381-D.png": {
