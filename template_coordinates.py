@@ -338,10 +338,10 @@ TEMPLATE_COORDINATES = {
     "Singleton (Digital) - 23301-D.png": {
         "split_ratio": 1.0,
         "LHS": [
-            (846, 410),
+            (852, 410),
             (1128, 425),
             (1130, 522),
-            (848, 511),
+            (852, 511),
         ]
     },
     "Torquay (Digital) - 32281-D.png": {
